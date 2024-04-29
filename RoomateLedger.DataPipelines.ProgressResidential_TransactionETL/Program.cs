@@ -10,7 +10,7 @@ using RoomateLedger.DataPipelines.Core;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
-builder.Configuration.AddUserSecrets<ProgressResidential.TransactionETL.Options>();
+builder.Configuration.AddUserSecrets<Program>();
 
 builder.Services.AddOptions<ProgressResidential.TransactionETL.Options>()
     .Bind(builder.Configuration.GetSection("ProgressResidentialTransactionETLPipeline"));

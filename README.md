@@ -5,10 +5,9 @@ TODO: add information about setting up dev environment for entity framework core
 https://learn.microsoft.com/en-us/ef/core/get-started/overview/install#get-the-net-core-cli-tools
 Install-Package Microsoft.EntityFrameworkCore.Tools
 
-
 # Recommended Dev Environment Configurations
-
 - disable stop on selenium exceptions that are inside WebDriverWait Until calls
+- DO NOT PUT CREDENTIALS IN appsettings.json!!! Use the VS Secrets Manager
 
 # Code Standards
 

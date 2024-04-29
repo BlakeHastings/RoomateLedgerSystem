@@ -11,7 +11,7 @@ namespace RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Exporte
 
 public class RecentActivityExporter : IRecentActivityExporter
 {
-    private ILogger<RecentActivityExporter> _logger { get; set; }
+    private ILogger<RecentActivityExporter>? _logger { get; set; }
 
     public RecentActivityExporter(ILogger<RecentActivityExporter> logger = null)
     {
@@ -20,7 +20,6 @@ public class RecentActivityExporter : IRecentActivityExporter
 
     public IEnumerable<RecentActivity> Export(string subdomain, string username, string password)
     {
-        var transactions = new List<Transaction>();
         using var driver = new ChromeDriver();
 
         var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
