@@ -1,5 +1,13 @@
 # RoomateLedgerSystem
 
+This is a project for importing transactions from multiple systems to allow
+for easier auditing of finances for rent calculations.
+
+This project is written to separate concerns due to the nature of data sources
+coming from unmanaged systems (websites of companies) which means you may be
+able to use some of data pipelines for your own projects. 
+
+
 # utilizes entity framework core
 TODO: add information about setting up dev environment for entity framework core
 https://learn.microsoft.com/en-us/ef/core/get-started/overview/install#get-the-net-core-cli-tools
