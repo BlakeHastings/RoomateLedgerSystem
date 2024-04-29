@@ -17,4 +17,8 @@
     <ProjectReference Include="..\RoomateLedger.Infrastructure\RoomateLedger.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NorthcentralElectricCooperative\TransactionETL\Transformers\" />
+  </ItemGroup>
+
 </Project>
