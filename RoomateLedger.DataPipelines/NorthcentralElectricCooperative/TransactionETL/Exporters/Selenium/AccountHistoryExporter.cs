@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using RoomateLedger.DataPipelines.NorthcentralElectricCooperative.TransactionETL.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,13 @@ namespace RoomateLedger.DataPipelines.NorthcentralElectricCooperative.Transactio
         
         public IEnumerable<AccountHistory> Export(string username, string password)
         {
+            using var driver = new ChromeDriver();
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            //sign in
+            //navigate to 
+
             throw new NotImplementedException();
         }
     
