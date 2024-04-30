@@ -12,6 +12,7 @@ using RoomateLedger.DataPipelines.NorthcentralElectricCooperative.TransactionETL
 using RoomateLedger.DataPipelines.Common;
 using RoomateLedger.DataPipelines.NorthcentralElectricCooperative.TransactionETL.Extensions;
 using RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Extensions;
+using RoomateLedger.DataPipelines.FirstHorizon.TransactionETL.Extensions;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
@@ -22,8 +23,9 @@ builder.Services.AddDbContext<LedgerContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DatabaseConnection"));
 });
 
-builder.AddNorthcentralTransactionETL("NorthcentralElectricTransactionETLPipeline");
-builder.AddProgressResidentialTransactionETL("ProgressResidentialTransactionETLPipeline");
+//builder.AddNorthcentralTransactionETL("NorthcentralElectricTransactionETLPipeline");
+//builder.AddProgressResidentialTransactionETL("ProgressResidentialTransactionETLPipeline");
+builder.AddFirstHorizonTransactionETL("FirstHorizonTransactionETLPipeline");
 
 builder.Services.AddHostedService<PipelineRunner>();
 

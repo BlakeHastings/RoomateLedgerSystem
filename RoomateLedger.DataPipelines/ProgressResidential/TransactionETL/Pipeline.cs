@@ -17,12 +17,13 @@ namespace RoomateLedger.DataPipelines.ProgressResidential.TransactionETL
         private const string RENTCAFE_SUBDOMAIN = "rentprogress";
         private const string DATASOURCE = "ProgressResidential";
 
-        public Pipeline(IOptions<Options> options, IRecentActivityExporter recentActivityExporter, ITransactionUploader transactionUploader,  ILogger<Pipeline> logger = null)
+        public Pipeline(
+            IOptions<Options> options, 
+            IRecentActivityExporter recentActivityExporter, 
+            ITransactionUploader transactionUploader,  
+            ILogger<Pipeline> logger = null)
+            : base($"{DATASOURCE}.TransactionETL001", $"{DATASOURCE}.TransactionETL001", "Extracts Recent Activity information from Progress Residentail's secure cafe page, transforms it into the Transactions model, and uploads it to the database")
         {
-            this.PipelineDescription = "Extracts Recent Activity information from Progress Residentail's secure cafe page, transforms it into the Transactions model, and uploads it to the database";
-            this.PipelineName = "ProgressResidential.TransactionETL";
-            this.PipelineId = "ProgressResidential.TransactionETL";
-
             _options = options.Value;
             _recentActivityExporter = recentActivityExporter;
             _transactionUploader = transactionUploader;

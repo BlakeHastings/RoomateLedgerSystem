@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using RoomateLedger.DataPipelines.Common;
 using RoomateLedger.DataPipelines.Core;
 using RoomateLedger.DataPipelines.FirstHorizon.TransactionETL.Exporters.Selenium;
@@ -19,6 +20,15 @@ namespace RoomateLedger.DataPipelines.FirstHorizon.TransactionETL
         private ITransactionUploader _transactionUploader;
 
         private const string DATASOURCE = "FirstHorizon";
+
+        public Pipeline(IOptions<Options> options, ILogger? logger, IAccountTransactionExporter accountTransactionExporter, ITransactionUploader transactionUploader) 
+            : base($"{DATASOURCE}.TransactionETL001", $"{DATASOURCE}.TransactionETL001", "FILL THIS IN LATER")
+        {
+            _options = options.Value;
+            _logger = logger;
+            _accountTransactionExporter = accountTransactionExporter;
+            _transactionUploader = transactionUploader;
+        }
 
         public override async Task ExecuteAsync(CancellationToken? cancellationToken = null)
         {

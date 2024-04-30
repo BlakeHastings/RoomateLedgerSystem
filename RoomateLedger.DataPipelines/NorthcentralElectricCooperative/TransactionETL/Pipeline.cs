@@ -25,12 +25,8 @@ namespace RoomateLedger.DataPipelines.NorthcentralElectricCooperative.Transactio
             IAccountHistoryExporter accountHistoryExporter,
             ITransactionUploader transactionUploader,
             ILogger<Pipeline>? logger)
+            : base($"{DATASOURCE}.TransactionETL001", $"{DATASOURCE}.TransactionETL001", "WILL FILL THIS IN LATER")
         {
-            // TODO: fill this in with correct information
-            this.PipelineDescription = "WILL FILL THIS IN LATER";
-            this.PipelineName = $"{DATASOURCE}.TransactionETL";
-            this.PipelineId = $"{DATASOURCE}.TransactionETL";
-
             _options = options.Value;
             _logger = logger;
             _accountHistoryExporter = accountHistoryExporter;
