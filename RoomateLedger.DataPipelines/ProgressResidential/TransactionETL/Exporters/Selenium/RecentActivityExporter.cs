@@ -54,7 +54,7 @@ public class RecentActivityExporter : IRecentActivityExporter
         var tableNextPageButtonWrapper = driver.FindElement(By.CssSelector("li.next"));
         var tableNextPageButton = tableNextPageButtonWrapper.FindElement(By.TagName("a"));
 
-        while (!IsNextButtonDisabled(tableNextPageButtonWrapper))
+        while (true)
         {
             var tableRows = tableBody.FindElements(By.TagName("tr"));
 
@@ -69,6 +69,9 @@ public class RecentActivityExporter : IRecentActivityExporter
 
                 recentActivity.Add(recentActivityRow);
             }
+
+            if (IsNextButtonDisabled(tableNextPageButtonWrapper))
+                break;
 
             tableNextPageButton.Click();
         }

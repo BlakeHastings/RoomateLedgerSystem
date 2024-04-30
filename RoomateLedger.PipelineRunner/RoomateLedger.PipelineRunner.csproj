@@ -19,6 +19,8 @@
   <ItemGroup>
     <ProjectReference Include="..\RoomateLedger.Core\RoomateLedger.Core.csproj" />
     <ProjectReference Include="..\RoomateLedger.DataPipelines\RoomateLedger.DataPipelines.csproj" />
+
+  
     <ProjectReference Include="..\RoomateLedger.Infrastructure\RoomateLedger.Infrastructure.csproj" />
   </ItemGroup>
 

@@ -22,7 +22,8 @@ namespace RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Transfo
             {
                 //TDOO: Replace this with proper format/hash
                 TransactionId = $"{source}{recentActivity.Date}{recentActivity.Balance}",
-                Amount = (recentActivity.Charge != 0) ? -recentActivity.Charge : recentActivity.Payment,
+                Amount = (recentActivity.Charge != 0) ? recentActivity.Charge : recentActivity.Payment,
+                Type = (recentActivity.Charge != 0) ? "Debit" : "Credit",
                 DateTime = recentActivity.Date.ToDateTime(TimeOnly.MinValue),
                 Description = recentActivity.PaymentsAndCharges,
                 Source = source,

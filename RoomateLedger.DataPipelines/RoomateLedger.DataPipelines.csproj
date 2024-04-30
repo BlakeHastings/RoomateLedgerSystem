@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NorthcentralElectricCooperative\TransactionETL\Transformers\" />
+    <Folder Include="FirstHorizon\TransactionETL\Models\" />
+    <Folder Include="FirstHorizon\TransactionETL\Transformers\" />
   </ItemGroup>
 
 </Project>

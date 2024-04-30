@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RoomateLedger.Core.Entities;
 using RoomateLedger.DataPipelines.Common;
 using RoomateLedger.DataPipelines.Core;
 using RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Exporters.Selenium;
-using RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Models;
 using RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Transformers;
 
 namespace RoomateLedger.DataPipelines.ProgressResidential.TransactionETL
@@ -19,7 +12,7 @@ namespace RoomateLedger.DataPipelines.ProgressResidential.TransactionETL
         private Options _options;
         private IRecentActivityExporter _recentActivityExporter;
         private ITransactionUploader _transactionUploader;
-        private ILogger _logger;
+        private ILogger? _logger;
 
         private const string RENTCAFE_SUBDOMAIN = "rentprogress";
         private const string DATASOURCE = "ProgressResidential";
