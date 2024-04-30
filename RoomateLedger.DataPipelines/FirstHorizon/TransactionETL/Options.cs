@@ -8,7 +8,8 @@ namespace RoomateLedger.DataPipelines.FirstHorizon.TransactionETL
 {
     public class Options
     {
-        public string FistHorizonUserID { get; set; } = String.Empty;
+        public string FirstHorizonAccountNumber { get; set; } = String.Empty;
+        public string FirstHorizonUserID { get; set; } = String.Empty;
         public string FirstHorizonPassword { get; set; } = String.Empty;
     }
 }

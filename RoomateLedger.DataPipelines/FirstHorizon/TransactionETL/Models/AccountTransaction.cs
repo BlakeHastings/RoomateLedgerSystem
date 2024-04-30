@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomateLedger.DataPipelines.FirstHorizon.TransactionETL.Exporters.Selenium
+namespace RoomateLedger.DataPipelines.FirstHorizon.TransactionETL.Models
 {
     public record AccountTransaction
     {
