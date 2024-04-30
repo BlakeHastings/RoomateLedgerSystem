@@ -10,31 +10,20 @@ using RoomateLedger.PipelineRunner;
 using RoomateLedger.DataPipelines.Core;
 using RoomateLedger.DataPipelines.NorthcentralElectricCooperative.TransactionETL.Exporters.Selenium;
 using RoomateLedger.DataPipelines.Common;
+using RoomateLedger.DataPipelines.NorthcentralElectricCooperative.TransactionETL.Extensions;
+using RoomateLedger.DataPipelines.ProgressResidential.TransactionETL.Extensions;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
-//TODO: Add extension methods inside pipeline libraries for adding services and options
 builder.Configuration.AddUserSecrets<Program>();
-
-builder.Services.AddOptions<ProgressResidential.TransactionETL.Options>()
-    .Bind(builder.Configuration.GetSection("ProgressResidentialTransactionETLPipeline"));
-
-builder.Services.AddOptions<NorthcentralElectric.TransactionETL.Options>()
-    .Bind(builder.Configuration.GetSection("NorthcentralElectricTransactionETLPipeline"));
 
 builder.Services.AddDbContext<LedgerContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DatabaseConnection"));
 });
 
-// pipeline referenced services
-builder.Services.AddTransient<IRecentActivityExporter, RecentActivityExporter>();
-builder.Services.AddTransient<IAccountHistoryExporter, AccountHistoryExporter>();
-builder.Services.AddTransient<ITransactionUploader, TransactionUploader>();
-
-// pipeline services
-builder.Services.AddTransient<BasePipeline, ProgressResidential.TransactionETL.Pipeline>();
-builder.Services.AddTransient<BasePipeline, NorthcentralElectric.TransactionETL.Pipeline>();
+builder.AddNorthcentralTransactionETL("NorthcentralElectricTransactionETLPipeline");
+builder.AddProgressResidentialTransactionETL("ProgressResidentialTransactionETLPipeline");
 
 builder.Services.AddHostedService<PipelineRunner>();
 
